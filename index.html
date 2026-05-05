@@ -165,8 +165,8 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   <a href="#home" class="logo">Funmi Olaitan</a>
 
   <nav class="links">
-    <a href="#portfolio">fashion</a>
-    <a href="#commercial">commercial</a>
+    <a href="#portfolio">headshots</a>
+    <a href="#fullbody">fullbody</a>
     <a href="#about">about & contact</a>
   </nav>
 
@@ -175,7 +175,7 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   </div>
 </header>
 
-<!-- FASHION GALLERY -->
+<!-- HEADSHOTS GALLERY -->
 <section class="gallery-section" id="portfolio">
   <div class="gallery-wrap">
 
@@ -186,11 +186,11 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
 
     <div>
       <div class="gallery-images">
-        <img src="fashion1.jpg" onclick="openImg(this)" alt="">
-        <img src="fashion2.jpg" onclick="openImg(this)" alt="">
-        <img src="fashion3.jpg" onclick="openImg(this)" alt="">
-        <img src="fashion4.jpg" onclick="openImg(this)" alt="">
-        <img src="fashion5.jpg" onclick="openImg(this)" alt="">
+        <img src="headshots1.jpg" onclick="openImg(this)" alt="">
+        <img src="headshots2.jpg" onclick="openImg(this)" alt="">
+        <img src="headshots3.jpg" onclick="openImg(this)" alt="">
+        <img src="headshots4.jpg" onclick="openImg(this)" alt="">
+        <img src="headshots5.jpg" onclick="openImg(this)" alt="">
        
       </div>
 
@@ -224,9 +224,9 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
 <!-- EDITORIAL COLLAGE -->
 <section class="editorial-section">
   <div class="editorial-stack">
-    <img src="fashion3.jpg" class="img-left" onclick="openImg(this)" alt="">
-    <img src="fashion4.jpg" class="img-center" onclick="openImg(this)" alt="">
-    <img src="fashion5.jpg" class="img-right" onclick="openImg(this)" alt="">
+    <img src="headshots3.jpg" class="img-left" onclick="openImg(this)" alt="">
+    <img src="fullbody4.jpg" class="img-center" onclick="openImg(this)" alt="">
+    <img src="headshots5.jpg" class="img-right" onclick="openImg(this)" alt="">
   </div>
 </section>
 
@@ -245,7 +245,7 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   </div>
 </header>
 
-<!-- COMMERCIAL GALLERY -->
+<!-- FULLBODY GALLERY -->
 <section class="gallery-section" id="commercial">
   <div class="gallery-wrap">
 
@@ -256,11 +256,11 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
 
     <div>
       <div class="gallery-images">
-     <img src="commercial1.jpg" onclick="openImg(this)" alt="">
-     <img src="commercial2.jpg" onclick="openImg(this)" alt="">
-     <img src="commercial3.jpg" onclick="openImg(this)" alt="">
-     <img src="commercial4.jpg" onclick="openImg(this)" alt="">
-     <img src="commercial5.jpg" onclick="openImg(this)" alt="">
+     <img src="fullbody1.jpg" onclick="openImg(this)" alt="">
+     <img src="fullbody2.jpg" onclick="openImg(this)" alt="">
+     <img src="fullbodyl3.jpg" onclick="openImg(this)" alt="">
+     <img src="fullbody4.jpg" onclick="openImg(this)" alt="">
+     <img src="fullbody5.jpg" onclick="openImg(this)" alt="">
         
       </div>
 
@@ -291,7 +291,7 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
 <div class="fullscreen-gallery" id="fullscreenGallery">
   <div class="fullscreen-header">
     <a href="#home" class="fullscreen-logo" onclick="closeFullGallery()">Funmi Olaitan</a>
-    <h2 id="galleryTitle">fashion</h2>
+    <h2 id="galleryTitle">Headshots</h2>
     <button class="close-gallery" onclick="closeFullGallery()">Close</button>
   </div>
 
@@ -309,20 +309,20 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
 </footer>
 
 <script>
-const fashionPhotos = [
-  "fashion1.jpg",
-  "fashion2.jpg",
-  "fashion3.jpg",
-  "fashion4.jpg",
-  "fashion5.jpg"
+const headshotsPhotos = [
+  "headshots1.jpg",
+  "headshots2.jpg",
+  "headshots3.jpg",
+  "headshots4.jpg",
+  "headshots5.jpg"
 ];
 
-const commercialPhotos = [
-  "commercial1.jpg",
-  "commercial2.jpg",
-  "commercial3.jpg",
-  "commercial4.jpg",
-  "commercial5.jpg"
+const fullbodyPhotos = [
+  "fullbody1.jpg",
+  "fullbody2.jpg",
+  "fullbody3.jpg",
+  "fullbody4.jpg",
+  "fullbody5.jpg"
 ];
 
 function openFullGallery(section){
@@ -330,7 +330,7 @@ function openFullGallery(section){
   const title = document.getElementById("galleryTitle");
   const allPhotos = document.getElementById("allPhotos");
 
-  const photos = section === "commercial" ? commercialPhotos : fashionPhotos;
+  const photos = section === "fullbody" ? fullbodyPhotos : headshotsPhotos;
 
   title.textContent = section;
   allPhotos.innerHTML = "";

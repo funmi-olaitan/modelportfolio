@@ -65,6 +65,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111;overflow-
   background:#fff;
   z-index:999;
   display:none;
+  overflow-y:auto;
   padding:30px 6vw 70px;
 }
 .fullscreen-gallery.active{display:block}
@@ -107,13 +108,28 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111;overflow-
   letter-spacing:1px;
 }
 
+.all-photos{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.all-photos img{
+  width:100%;
+  height:620px;
+  object-fit:cover;
+  cursor:pointer;
+}
+
 .slider-wrap{
   height:calc(100vh - 140px);
-  display:flex;
+  display:none;
   align-items:center;
   justify-content:center;
   position:relative;
 }
+
+.slider-wrap.active{display:flex}
 
 #sliderImage{
   max-width:88vw;
@@ -186,6 +202,8 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   .fullscreen-logo{font-size:.85rem}
   .fullscreen-header h2{font-size:.75rem}
   .close-gallery{padding:8px 14px;font-size:.65rem}
+  .all-photos{grid-template-columns:1fr;gap:14px}
+  .all-photos img{height:auto}
 
   .slider-wrap{height:calc(100vh - 115px)}
   #sliderImage{max-width:92vw;max-height:72vh}
@@ -198,7 +216,6 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
 
 <body>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div>
     <h1>Funmi<br>Olaitan</h1>
@@ -207,7 +224,6 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   </div>
 </section>
 
-<!-- HEADER -->
 <header class="site-nav">
   <a href="#home" class="logo">Funmi Olaitan</a>
 
@@ -222,10 +238,8 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   </div>
 </header>
 
-<!-- HEADSHOTS GALLERY -->
 <section class="gallery-section" id="headshots">
   <div class="gallery-wrap">
-
     <div class="side-links">
       <a href="https://www.instagram.com/funmes._/" target="_blank">Instagram</a>
       <button onclick="shareSite()">Share</button>
@@ -239,7 +253,7 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
 
       <div class="gallery-count">
         <span>1 / 5</span>
-        <div class="grid-icon" onclick="openFullGallery('headshots', 0)">
+        <div class="grid-icon" onclick="openFullGallery('headshots')">
           <span></span><span></span><span></span><span></span>
         </div>
       </div>
@@ -249,7 +263,6 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   </div>
 </section>
 
-<!-- HEADER AGAIN -->
 <header class="site-nav">
   <a href="#home" class="logo">Funmi Olaitan</a>
 
@@ -264,7 +277,6 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   </div>
 </header>
 
-<!-- EDITORIAL COLLAGE -->
 <section class="editorial-section">
   <div class="editorial-stack">
     <img src="headshots3.jpg" fetchpriority="high" decoding="async" class="img-left" onclick="openImg(this)" alt="">
@@ -273,7 +285,6 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   </div>
 </section>
 
-<!-- HEADER AGAIN -->
 <header class="site-nav">
   <a href="#home" class="logo">Funmi Olaitan</a>
 
@@ -288,10 +299,8 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   </div>
 </header>
 
-<!-- FULLBODY GALLERY -->
 <section class="gallery-section" id="fullbody">
   <div class="gallery-wrap">
-
     <div class="side-links">
       <a href="https://www.instagram.com/funmes._/" target="_blank">Instagram</a>
       <button onclick="shareSite()">Share</button>
@@ -305,7 +314,7 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
 
       <div class="gallery-count">
         <span>1 / 5</span>
-        <div class="grid-icon" onclick="openFullGallery('fullbody', 0)">
+        <div class="grid-icon" onclick="openFullGallery('fullbody')">
           <span></span><span></span><span></span><span></span>
         </div>
       </div>
@@ -315,7 +324,6 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <h2>About & Contact</h2>
   <p>
@@ -326,13 +334,14 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   <p>Instagram: @funmes._</p>
 </section>
 
-<!-- FULLSCREEN GALLERY -->
 <div class="fullscreen-gallery" id="fullscreenGallery">
   <div class="fullscreen-header">
     <a href="#home" class="fullscreen-logo" onclick="closeFullGallery()">Funmi Olaitan</a>
     <h2 id="galleryTitle">headshots</h2>
     <button class="close-gallery" onclick="closeFullGallery()">Close</button>
   </div>
+
+  <div class="all-photos" id="allPhotos"></div>
 
   <div class="slider-wrap" id="sliderWrap">
     <button class="slider-arrow left" onclick="prevSlide()">‹</button>
@@ -342,7 +351,6 @@ footer{padding:40px;text-align:center;font-size:.7rem;opacity:.5}
   </div>
 </div>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeImg()">
   <button class="close">×</button>
   <img id="lightImg">
@@ -372,18 +380,40 @@ const fullbodyPhotos = [
 let currentPhotos = headshotsPhotos;
 let currentIndex = 0;
 
-function openFullGallery(section, startIndex = 0){
+function openFullGallery(section){
   const gallery = document.getElementById("fullscreenGallery");
   const title = document.getElementById("galleryTitle");
+  const allPhotos = document.getElementById("allPhotos");
+  const sliderWrap = document.getElementById("sliderWrap");
 
   currentPhotos = section === "fullbody" ? fullbodyPhotos : headshotsPhotos;
-  currentIndex = startIndex;
 
   title.textContent = section;
-  updateSlider();
+  allPhotos.innerHTML = "";
+  sliderWrap.classList.remove("active");
+  allPhotos.style.display = "grid";
+
+  currentPhotos.forEach((photo, index) => {
+    const img = document.createElement("img");
+    img.src = photo;
+    img.fetchPriority = "high";
+    img.decoding = "async";
+    img.onclick = function(){ openSlider(index); };
+    allPhotos.appendChild(img);
+  });
 
   gallery.classList.add("active");
   document.body.style.overflow = "hidden";
+}
+
+function openSlider(index){
+  const allPhotos = document.getElementById("allPhotos");
+  const sliderWrap = document.getElementById("sliderWrap");
+
+  currentIndex = index;
+  allPhotos.style.display = "none";
+  sliderWrap.classList.add("active");
+  updateSlider();
 }
 
 function updateSlider(){
@@ -427,7 +457,6 @@ function shareSite(){
   }
 }
 
-/* SWIPE SUPPORT */
 let startX = 0;
 let endX = 0;
 const sliderWrap = document.getElementById("sliderWrap");

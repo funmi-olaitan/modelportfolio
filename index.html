@@ -7,7 +7,7 @@
 <meta name="description" content="Funmi Olaitan, model. Portfolio, bookings and management enquiries." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="hero1.jpg">
 
 <style>
@@ -34,19 +34,23 @@ section[id]{scroll-margin-top:56px}
 .book:hover{background:#fff;color:#111}
 .solid .book:hover{background:#111;color:#fff}
 
-/* HERO */
-.hero{position:relative;overflow:hidden;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.42)),url("hero1.jpg") center/cover no-repeat;animation:zoom 2.4s cubic-bezier(.2,.7,.2,1) both}
-.hero>div{position:relative;z-index:1;padding:0 6vw}
-.hero h1{font-size:clamp(3rem,9vw,8rem);font-weight:200;letter-spacing:.1em;line-height:1;text-transform:uppercase}
-.l{display:block;overflow:hidden;padding:.04em 0 .06em .1em}
-.l>span{display:block;animation:rise 1.3s cubic-bezier(.2,.8,.2,1) both}
+/* HERO: editorial serif name, bottom-left, staggered */
+.hero{position:relative;overflow:hidden;height:100vh;height:100svh;display:flex;align-items:flex-end;color:#fff}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.58) 100%),url("hero1.jpg") center/cover no-repeat;animation:zoom 2.4s cubic-bezier(.2,.7,.2,1) both}
+.hero>div{position:relative;z-index:1;padding:0 4vw 11vh}
+.hero h1,.logo,.fullscreen-logo,.about h2,.mail{font-family:"Cormorant Garamond",Georgia,serif}
+.hero h1{font-size:clamp(3.6rem,14.5vw,13rem);font-weight:300;line-height:.86;letter-spacing:.01em;text-transform:uppercase}
+.logo{font-size:1.1rem;font-weight:500}
+.l{display:block;overflow:hidden;padding:.08em 0 .04em}
+.l>span{display:block;animation:rise 1.4s cubic-bezier(.2,.8,.2,1) both}
+.l:nth-child(2){padding-left:11vw}
 .l:nth-child(2)>span{animation-delay:.15s}
-.hero p{margin-top:18px;font-size:.78rem;font-weight:300;letter-spacing:.28em;text-transform:uppercase;animation:fade 1.2s ease .9s both}
-.enter{display:inline-block;margin-top:36px;padding:13px 36px;border:1px solid rgba(255,255,255,.85);color:#fff;text-decoration:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;transition:background .4s,color .4s;animation:fade 1.2s ease 1.15s both}
-.enter:hover{background:#fff;color:#111}
-.cue{position:absolute;left:50%;bottom:26px;width:1px;height:46px;background:rgba(255,255,255,.35);overflow:hidden}
-.cue::after{content:"";position:absolute;inset:0;background:#fff;animation:cue 2s ease-in-out 1.6s infinite}
+.hero p{margin-top:22px;font-size:.74rem;font-weight:300;letter-spacing:.34em;text-transform:uppercase;animation:fade 1.2s ease .9s both}
+.cue{position:absolute;right:4vw;bottom:5vh;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px;color:#fff;text-decoration:none;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;animation:fade 1.2s ease 1.4s both}
+.cue i{position:relative;width:1px;height:56px;background:rgba(255,255,255,.35);overflow:hidden}
+.cue i::after{content:"";position:absolute;inset:0;background:#fff;animation:cue 2s ease-in-out 1.8s infinite}
+.t2{display:none}
+@media(hover:none){.t1{display:none}.t2{display:inline}}
 @keyframes zoom{from{transform:scale(1.1)}to{transform:none}}
 @keyframes rise{from{transform:translateY(105%)}to{transform:none}}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -55,8 +59,9 @@ section[id]{scroll-margin-top:56px}
 /* GALLERY */
 .gallery-section{min-height:100vh;min-height:100svh;padding:25px 7vw 80px;display:flex;align-items:center}
 .gallery-wrap{width:100%;display:grid;grid-template-columns:120px minmax(0,1fr) 120px;align-items:end;gap:30px}
-.gallery-images{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.gallery-images img{width:100%;height:min(690px,calc(100svh - 170px));min-height:340px;object-fit:cover;display:block;cursor:zoom-in}
+.gallery-images{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.gallery-images img{width:100%;height:min(640px,calc(100svh - 240px));min-height:300px;object-fit:cover;display:block;cursor:zoom-in}
+.gallery-images img:nth-child(2){margin-top:56px}
 .side-links{font-size:.76rem;letter-spacing:.05em;color:#777;line-height:1.8;padding-bottom:8px}
 .side-links a,.side-links button{display:block;color:#777;text-decoration:none;background:none;border:0;font:inherit;cursor:pointer;transition:color .3s}
 .side-links a:hover,.side-links button:hover{color:#111}
@@ -110,11 +115,22 @@ section[id]{scroll-margin-top:56px}
 
 footer{padding:40px;text-align:center;font-size:.72rem;letter-spacing:.08em;opacity:.5}
 
-/* REVEAL: transform + opacity only (added by JS) */
-.reveal{opacity:0;translate:0 24px;transition:opacity .9s ease,translate .9s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;translate:0 0}
-.reveal.d1{transition-delay:.1s}
-.reveal.d2{transition-delay:.2s}
+/* REVEAL: curtain wipe once per image (class added by JS) */
+.reveal{clip-path:inset(0 0 100% 0);transition:clip-path 1.3s cubic-bezier(.77,0,.18,1),opacity .45s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{clip-path:inset(0)}
+.reveal.d1{transition-delay:.12s}
+.reveal.d2{transition-delay:.24s}
+@media(hover:hover) and (pointer:fine){
+  .gallery-images img,.editorial-stack img,.all-photos img{cursor:none}
+  .gallery-images:hover img:not(:hover){opacity:.45}
+}
+@media(hover:hover) and (min-width:769px){
+  .editorial-stack:hover .img-left{transform:rotate(-14deg) translateX(-3vw)}
+  .editorial-stack:hover .img-right{transform:rotate(12deg) translateX(3vw)}
+}
+.cursor{position:fixed;left:0;top:0;z-index:1100;pointer-events:none}
+.cursor span{display:grid;place-items:center;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:#fff;color:#111;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;box-shadow:0 4px 24px rgba(0,0,0,.18);transform:scale(0);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.cursor.on span{transform:scale(1)}
 
 @media(max-width:900px){
   .gallery-wrap{grid-template-columns:minmax(0,1fr);gap:16px}
@@ -127,11 +143,15 @@ footer{padding:40px;text-align:center;font-size:.72rem;letter-spacing:.08em;opac
   .links{margin-left:0;gap:14px;flex:0}
   .links a{font-size:.72rem}
   .book{display:none}
-  .hero h1{font-size:clamp(2.6rem,14vw,4.6rem)}
-  .hero p{font-size:.66rem;letter-spacing:.2em}
+  .hero h1{font-size:clamp(3.1rem,19vw,5.6rem)}
+  .l:nth-child(2){padding-left:9vw}
+  .hero>div{padding-bottom:13vh}
+  .cue{bottom:4vh}
+  .hero p{font-size:.64rem;letter-spacing:.26em}
   .gallery-section{min-height:auto;padding:76px 4vw 50px;display:block}
   .gallery-images{gap:8px}
   .gallery-images img{height:auto;min-height:0;aspect-ratio:3/4}
+  .gallery-images img:nth-child(2){margin-top:0}
   .gallery-count{justify-content:flex-start}
   .editorial-section{padding:30px 4vw 70px}
   .editorial-stack{height:auto}
@@ -169,9 +189,8 @@ footer{padding:40px;text-align:center;font-size:.72rem;letter-spacing:.08em;opac
   <div>
     <h1><span class="l"><span>Funmi</span></span><span class="l"><span>Olaitan</span></span></h1>
     <p>Model</p>
-    <a class="enter" href="#headshots">Enter</a>
   </div>
-  <span class="cue" aria-hidden="true"></span>
+  <a class="cue" href="#headshots" aria-label="Scroll to portfolio"><span class="t1">scroll</span><span class="t2">swipe up</span><i></i></a>
 </section>
 
 <section class="gallery-section" id="headshots">
@@ -250,6 +269,8 @@ footer{padding:40px;text-align:center;font-size:.72rem;letter-spacing:.08em;opac
   <button class="close" aria-label="Close">×</button>
   <img id="lightImg" alt="">
 </div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span>view</span></div>
 
 <footer>© 2026 Funmi Olaitan</footer>
 
@@ -360,7 +381,17 @@ const spy = new IntersectionObserver(entries => {
 }, {rootMargin:"-45% 0px -50% 0px"});
 links.forEach(a => spy.observe(document.querySelector(a.getAttribute("href"))));
 
-/* Soft image reveal, runs once per image */
+/* "View" cursor over photos (mouse only, one tiny rAF update) */
+if(matchMedia("(hover:hover) and (pointer:fine)").matches){
+  const c = $("cursor"); let x = 0, y = 0, raf = 0;
+  document.addEventListener("pointermove", e => {
+    x = e.clientX; y = e.clientY;
+    if(!raf) raf = requestAnimationFrame(() => { c.style.transform = "translate(" + x + "px," + y + "px)"; raf = 0; });
+  }, {passive:true});
+  document.addEventListener("pointerover", e => c.classList.toggle("on", !!e.target.closest(".gallery-images img,.editorial-stack img,.all-photos img")));
+}
+
+/* Image reveal, runs once per image */
 if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches){
   const io = new IntersectionObserver(es => es.forEach(en => {
     if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }

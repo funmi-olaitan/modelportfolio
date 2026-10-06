@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Funmi Olaitan — Model</title>
-<meta name="description" content="Funmi Olaitan, model based in Toronto. Portfolio, bookings and management enquiries." />
+<title>Funmi Olaitan — Model | Commercial &amp; Fashion | Toronto</title>
+<meta name="description" content="Funmi Olaitan, Toronto-based model for commercial, beauty and fashion campaigns. Portfolio, bookings and management enquiries." />
 
 <!-- Link previews: REPLACE YOURDOMAIN.com with your real domain (must be absolute URLs) -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Funmi Olaitan — Model">
-<meta property="og:description" content="Portfolio, bookings and management enquiries.">
+<meta property="og:title" content="Funmi Olaitan — Model | Commercial &amp; Fashion">
+<meta property="og:description" content="Toronto-based model for brand campaigns, commercial and fashion. Book Funmi.">
 <meta property="og:image" content="https://YOURDOMAIN.com/hero1.jpg">
 <meta property="og:url" content="https://YOURDOMAIN.com">
 <meta name="twitter:card" content="summary_large_image">
@@ -105,7 +105,7 @@ section[id]{scroll-margin-top:56px}
 .collage.dark{background:#111;color:#faf9f7}
 .collage-title{
   position:absolute;left:0;right:0;top:clamp(40px,6vw,90px);text-align:center;pointer-events:none;
-  font-size:clamp(4rem,19vw,18rem);font-weight:200;line-height:1;letter-spacing:.06em;text-transform:uppercase;
+  font-size:clamp(3.2rem,14vw,14rem);font-weight:200;line-height:1;letter-spacing:.06em;text-transform:uppercase;
   color:transparent;-webkit-text-stroke:1px rgba(0,0,0,.1);white-space:nowrap;
 }
 .dark .collage-title{-webkit-text-stroke:1px rgba(255,255,255,.14)}
@@ -147,6 +147,10 @@ section[id]{scroll-margin-top:56px}
 .about h2{font-size:1.5rem;font-weight:200;text-transform:uppercase;letter-spacing:.16em;margin-bottom:28px}
 .bio{font-size:1.02rem;max-width:56ch;margin-bottom:38px}
 .about .label{font-size:.76rem;letter-spacing:.1em;color:#777}
+.range{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 40px;list-style:none}
+.range li{border:1px solid rgba(0,0,0,.25);padding:8px 16px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.range-label{margin-bottom:14px}
+.about h2{margin-bottom:28px}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:22px 30px;margin-bottom:48px;padding:28px 0;border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1)}
 .stats dt{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#777}
 .stats dd{font-size:1rem;font-weight:300;margin-top:2px}
@@ -262,8 +266,8 @@ footer{padding:40px;text-align:center;font-size:.72rem;letter-spacing:.08em;opac
 <header class="site-nav" id="nav">
   <a href="#home" class="logo">Funmi Olaitan</a>
   <nav class="links" aria-label="Main">
-    <a href="#headshots">headshots</a>
-    <a href="#fullbody">fullbody</a>
+    <a href="#headshots">commercial</a>
+    <a href="#fullbody">fashion</a>
     <a href="#about">contact</a>
   </nav>
   <a class="book" href="#about">book</a>
@@ -272,7 +276,7 @@ footer{padding:40px;text-align:center;font-size:.72rem;letter-spacing:.08em;opac
 <section class="hero" id="home">
   <div>
     <h1><span class="l"><span>Funmi</span></span><span class="l"><span>Olaitan</span></span></h1>
-    <p>Model</p>
+    <p>Model &nbsp;·&nbsp; Commercial &amp; Fashion</p>
   </div>
   <a class="cue" href="#headshots" aria-label="Scroll to portfolio"><span class="t1">scroll</span><span class="t2">swipe up</span><i></i></a>
 </section>
@@ -291,21 +295,21 @@ footer{padding:40px;text-align:center;font-size:.72rem;letter-spacing:.08em;opac
       </div>
       <div class="gallery-count">
         <span data-count="headshots">5 photos</span>
-        <button class="grid-icon" onclick="openFullGallery('headshots')" aria-label="View all headshots"><span></span><span></span><span></span><span></span></button>
+        <button class="grid-icon" onclick="openFullGallery('headshots')" aria-label="View all commercial photos"><span></span><span></span><span></span><span></span></button>
       </div>
     </div>
     <div></div>
   </div>
 </section>
 
-<section class="collage" aria-label="headshots selected work">
-  <p class="collage-title" aria-hidden="true">Headshots</p>
+<section class="collage" aria-label="Commercial selected work">
+  <p class="collage-title" aria-hidden="true">Commercial</p>
   <div class="collage-grid">
     <figure class="c1"><img src="headshots3.jpg" loading="lazy" decoding="async" onclick="openImg(this)" alt="Funmi Olaitan headshots 3"><figcaption>03</figcaption></figure>
     <figure class="c2"><img src="headshots4.jpg" loading="lazy" decoding="async" onclick="openImg(this)" alt="Funmi Olaitan headshots 4"><figcaption>04</figcaption></figure>
     <figure class="c3"><img src="headshots5.jpg" loading="lazy" decoding="async" onclick="openImg(this)" alt="Funmi Olaitan headshots 5"><figcaption>05</figcaption></figure>
   </div>
-  <p class="collage-meta"><span>Funmi Olaitan</span><span>Headshots</span></p>
+  <p class="collage-meta"><span>Funmi Olaitan</span><span>Commercial</span></p>
 </section>
 
 <!-- FULL BODY (now shows all 5, matching the "5 photos" count) -->
@@ -322,28 +326,34 @@ footer{padding:40px;text-align:center;font-size:.72rem;letter-spacing:.08em;opac
       </div>
       <div class="gallery-count">
         <span data-count="fullbody">5 photos</span>
-        <button class="grid-icon" onclick="openFullGallery('fullbody')" aria-label="View all full body photos"><span></span><span></span><span></span><span></span></button>
+        <button class="grid-icon" onclick="openFullGallery('fullbody')" aria-label="View all fashion photos"><span></span><span></span><span></span><span></span></button>
       </div>
     </div>
     <div></div>
   </div>
 </section>
 
-<section class="collage dark flip" aria-label="full body selected work">
-  <p class="collage-title" aria-hidden="true">Full Body</p>
+<section class="collage dark flip" aria-label="Fashion selected work">
+  <p class="collage-title" aria-hidden="true">Fashion</p>
   <div class="collage-grid">
     <figure class="c1"><img src="fullbody3.jpg" loading="lazy" decoding="async" onclick="openImg(this)" alt="Funmi Olaitan full body 3"><figcaption>03</figcaption></figure>
     <figure class="c2"><img src="fullbody4.jpg" loading="lazy" decoding="async" onclick="openImg(this)" alt="Funmi Olaitan full body 4"><figcaption>04</figcaption></figure>
     <figure class="c3"><img src="fullbody5.jpg" loading="lazy" decoding="async" onclick="openImg(this)" alt="Funmi Olaitan full body 5"><figcaption>05</figcaption></figure>
   </div>
-  <p class="collage-meta"><span>Funmi Olaitan</span><span>Full body</span></p>
+  <p class="collage-meta"><span>Funmi Olaitan</span><span>Fashion</span></p>
 </section>
 
 <!-- ABOUT / CONTACT — edit the placeholder details below -->
 <section class="about" id="about">
-  <h2>About &amp; Contact</h2>
+  <h2>Book Funmi</h2>
 
-  <p class="bio">Toronto-based model available for commercial, editorial and fashion work. Fluent in English. Available to travel. <!-- EDIT: replace with your own two lines (add languages, skills, or "available for") --></p>
+  <p class="bio">Toronto-based model available for brand campaigns, commercial, beauty, editorial and fashion work. Fluent in English. Available to travel. <!-- EDIT: replace with your own two lines (add languages, skills, or "available for") --></p>
+
+  <!-- EDIT: keep only the work you genuinely do / want to be booked for -->
+  <p class="label range-label">Available for</p>
+  <ul class="range">
+    <li>Brand campaigns</li><li>Beauty</li><li>Lifestyle</li><li>E-commerce</li><li>Fashion</li><li>Editorial</li><li>Social content</li>
+  </ul>
 
   <dl class="stats">
     <div><dt>Height</dt><dd>5′9″ / 175 cm</dd></div>
@@ -354,6 +364,9 @@ footer{padding:40px;text-align:center;font-size:.72rem;letter-spacing:.08em;opac
     <div><dt>Hair</dt><dd>Black</dd></div>
     <div><dt>Eyes</dt><dd>Brown</dd></div>
     <div><dt>Based in</dt><dd>Toronto</dd></div>
+    <div><dt>Languages</dt><dd>English</dd></div>
+    <div><dt>Travel</dt><dd>Available</dd></div>
+    <div><dt>Turnaround</dt><dd>Replies within 24h</dd></div>
   </dl>
 
   <p class="label">Bookings &amp; management</p>
@@ -368,7 +381,7 @@ footer{padding:40px;text-align:center;font-size:.72rem;letter-spacing:.08em;opac
 <div class="fullscreen-gallery" id="fullscreenGallery" aria-hidden="true">
   <div class="fullscreen-header">
     <a href="#home" class="fullscreen-logo" onclick="closeFullGallery()">Funmi Olaitan</a>
-    <h2 id="galleryTitle">headshots</h2>
+    <h2 id="galleryTitle">commercial</h2>
     <button class="close-gallery" onclick="closeFullGallery()">Close</button>
   </div>
   <div class="all-photos" id="allPhotos"></div>
@@ -405,7 +418,7 @@ document.querySelectorAll("[data-count]").forEach(el => {
 
 function openFullGallery(section){
   current = photos[section];
-  $("galleryTitle").textContent = section;
+  $("galleryTitle").textContent = {headshots:"commercial",fullbody:"fashion"}[section] || section;
   grid.innerHTML = "";
   slider.classList.remove("active");
   grid.style.display = "grid";
